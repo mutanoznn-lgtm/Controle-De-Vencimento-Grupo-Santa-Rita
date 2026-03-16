@@ -162,10 +162,20 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen p-4 sm:p-6 lg:p-8">
       <div className="mx-auto max-w-5xl">
+        {/* Top Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="mb-6 text-center"
+        >
+          <h2 className="text-2xl font-bold tracking-wide text-primary sm:text-3xl">Grupo Santa Rita</h2>
+        </motion.div>
+
         {/* Header */}
         <motion.header
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.05 }}
           className="mb-6 flex flex-wrap items-center justify-between gap-4"
         >
           <div className="flex items-center gap-3">
