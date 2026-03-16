@@ -37,6 +37,7 @@ const Dashboard = () => {
   const [allProducts, setAllProducts] = useState<(CardProduct & { username: string })[]>([]);
   const [search, setSearch] = useState("");
   const [copied, setCopied] = useState(false);
+  const [showAllProducts, setShowAllProducts] = useState(false);
   const notifiedRef = useRef(false);
 
   const fetchProducts = useCallback(async () => {
