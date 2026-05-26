@@ -47,15 +47,16 @@ const LoginScreen = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="w-full max-w-md"
       >
-        <div className="glass-strong rounded-2xl p-8 shadow-2xl">
+        <div className="glass rounded-2xl p-8 shadow-sm">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/20"
+            className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/10 shadow-inner"
           >
             <Package className="h-10 w-10 text-primary" />
           </motion.div>
+
 
           <motion.h1
             initial={{ opacity: 0 }}
@@ -87,7 +88,8 @@ const LoginScreen = () => {
                     value={username}
                     onChange={(e) => { setUsername(e.target.value); setError(""); }}
                     placeholder="Seu nome"
-                    className="w-full rounded-lg border border-border bg-muted/50 py-3 pl-10 pr-4 text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                    className="w-full rounded-2xl border border-border bg-muted/30 py-3 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all"
+
                   />
                 </div>
               </motion.div>
@@ -102,7 +104,8 @@ const LoginScreen = () => {
                   value={email}
                   onChange={(e) => { setEmail(e.target.value); setError(""); }}
                   placeholder="seu@email.com"
-                  className="w-full rounded-lg border border-border bg-muted/50 py-3 pl-10 pr-4 text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                  className="w-full rounded-2xl border border-border bg-muted/30 py-3 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all"
+
                 />
               </div>
             </div>
@@ -116,7 +119,8 @@ const LoginScreen = () => {
                   value={password}
                   onChange={(e) => { setPassword(e.target.value); setError(""); }}
                   placeholder="Sua senha"
-                  className="w-full rounded-lg border border-border bg-muted/50 py-3 pl-10 pr-4 text-foreground placeholder:text-muted-foreground/50 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors"
+                  className="w-full rounded-2xl border border-border bg-muted/30 py-3 pl-11 pr-4 text-foreground placeholder:text-muted-foreground/40 focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/10 transition-all"
+
                 />
               </div>
             </div>
@@ -127,9 +131,10 @@ const LoginScreen = () => {
               </motion.p>
             )}
             {success && (
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sm text-neon-green">
+              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sm font-semibold text-status-green">
                 {success}
               </motion.p>
+
             )}
 
             <motion.button
@@ -137,7 +142,7 @@ const LoginScreen = () => {
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={loading}
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-3 font-semibold text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30 disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-2 rounded-2xl bg-primary py-3.5 font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all hover:shadow-xl hover:shadow-primary/30 disabled:opacity-50"
             >
               {isSignUp ? <UserPlus className="h-4 w-4" /> : <LogIn className="h-4 w-4" />}
               {loading ? "Aguarde..." : isSignUp ? "Criar Conta" : "Entrar"}
