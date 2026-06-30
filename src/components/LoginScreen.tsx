@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { LogIn, User, Lock, Package, Mail, UserPlus } from "lucide-react";
+import { LogIn, User, Lock, Package, Mail, UserPlus, Store, ShieldCheck, KeyRound } from "lucide-react";
+
 import { useAuth } from "@/hooks/useAuth";
 
 const LoginScreen = () => {
