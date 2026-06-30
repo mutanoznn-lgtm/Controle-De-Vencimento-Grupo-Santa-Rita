@@ -72,9 +72,9 @@ const LoginScreen = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/10 shadow-inner"
+            className="mx-auto mb-6 flex items-center justify-center"
           >
-            <Package className="h-10 w-10 text-primary" />
+            <img src={logoSantaRita} alt="Atacadão Santa Rita" className="h-24 w-auto object-contain" />
           </motion.div>
 
           <motion.h1
