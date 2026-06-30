@@ -10,6 +10,9 @@ const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [storeCode, setStoreCode] = useState<"006" | "003">("006");
+  const [isManager, setIsManager] = useState(false);
+  const [managerPass, setManagerPass] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
@@ -27,11 +30,21 @@ const LoginScreen = () => {
       setError("Preencha o nome de usuário");
       return;
     }
+    if (isSignUp && isManager && !managerPass.trim()) {
+      setError("Informe a senha de gerente");
+      return;
+    }
 
     setLoading(true);
     try {
       if (isSignUp) {
-        const { error } = await signUp(email.trim(), password, username.trim());
+        const { error } = await signUp(
+          email.trim(),
+          password,
+          username.trim(),
+          storeCode,
+          isManager ? managerPass.trim() : undefined
+        );
         if (error) setError(error);
         else setSuccess("Conta criada! Verifique seu e-mail para confirmar.");
       } else {
@@ -44,6 +57,7 @@ const LoginScreen = () => {
       setLoading(false);
     }
   };
+
 
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
