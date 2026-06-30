@@ -78,7 +78,7 @@ const ProductCard = ({ product, onDelete, onEdit, index, readOnly }: ProductCard
       animate={{ opacity: 1, y: 0, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9, x: -50 }}
       transition={{ duration: 0.3, delay: index * 0.05 }}
-      className={`relative group float-card rounded-2xl p-5 overflow-hidden border border-border/50 ${statusClasses[status]} transition-all hover:shadow-md hover:border-primary/20`}
+      className={`relative group float-card rounded-2xl p-4 sm:p-5 overflow-hidden border border-border/50 ${statusClasses[status]} transition-all hover:shadow-md hover:border-primary/20 min-w-0 max-w-full`}
     >
 
       {editing ? (
@@ -99,15 +99,16 @@ const ProductCard = ({ product, onDelete, onEdit, index, readOnly }: ProductCard
       ) : (
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 flex-1">
-            <h3 className="truncate text-lg font-semibold text-foreground">
+            <h3 className="break-words text-base sm:text-lg font-semibold text-foreground leading-tight">
               {product.name}
             </h3>
-            <div className="mt-2 text-sm text-muted-foreground">
+            <div className="mt-2 text-xs sm:text-sm text-muted-foreground">
               <span className="flex items-center gap-1">
-                <Clock className="h-3.5 w-3.5" />
-                Vencimento: {formatDate(product.expirationDate)}
+                <Clock className="h-3.5 w-3.5 flex-shrink-0" />
+                <span className="truncate">Venc: {formatDate(product.expirationDate)}</span>
               </span>
             </div>
+
             <div className="mt-3">
               <span className={`inline-flex items-center rounded-lg px-3 py-1 text-[11px] font-black uppercase tracking-wider ${statusBadgeClasses[status]}`}>
                 {label}

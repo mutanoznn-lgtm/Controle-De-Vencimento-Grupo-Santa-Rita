@@ -23,7 +23,7 @@ export const ProductList = ({
     <div className="grid gap-4 sm:grid-cols-2">
       <AnimatePresence mode="popLayout">
         {products.map((product, index) => (
-          <div key={product.id} className="relative group">
+          <div key={product.id} className="relative group min-w-0">
             <ProductCard 
               product={product} 
               onDelete={onDelete} 
@@ -32,7 +32,7 @@ export const ProductList = ({
               readOnly={!isAdmin && product.user_id !== currentUserId}
             />
             {showAllProducts && (
-              <span className="absolute top-3 right-3 rounded-full bg-background/80 backdrop-blur-sm border border-border px-2 py-0.5 text-[10px] font-bold text-muted-foreground shadow-sm">
+              <span className="pointer-events-none absolute bottom-3 right-3 max-w-[45%] truncate rounded-full bg-background/80 backdrop-blur-sm border border-border px-2 py-0.5 text-[10px] font-bold text-muted-foreground shadow-sm">
                 {product.username}
               </span>
             )}
@@ -42,3 +42,4 @@ export const ProductList = ({
     </div>
   );
 };
+
