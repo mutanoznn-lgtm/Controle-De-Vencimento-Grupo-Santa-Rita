@@ -6,11 +6,20 @@ interface AuthContext {
   user: User | null;
   session: Session | null;
   username: string | null;
+  store: string | null;
   isAdmin: boolean;
+  isManager: boolean;
   loading: boolean;
-  signUp: (email: string, password: string, username: string) => Promise<{ error: string | null }>;
+  signUp: (
+    email: string,
+    password: string,
+    username: string,
+    store: string,
+    managerPasscode?: string
+  ) => Promise<{ error: string | null }>;
   signIn: (email: string, password: string) => Promise<{ error: string | null }>;
   signOut: () => Promise<void>;
+
 }
 
 const AuthCtx = createContext<AuthContext | null>(null);
